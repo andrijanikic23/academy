@@ -27,9 +27,9 @@ class SlotsSeeder extends Seeder
     {
         for($j = 0; $j <= 9; $j++)
         {
-            foreach($courts as $court)
+            for($i = 7; $i <= 23; $i++)
             {
-                for($i = 7; $i <= 23; $i++)
+                foreach($courts as $court)
                 {
                     SlotsModel::create([
                         "court_id" => $court,
