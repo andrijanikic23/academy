@@ -35,9 +35,9 @@ class UpdateDatesCommand extends Command
         $newLatestDate = Carbon::parse($latestDate)->addDays(1);
         $courts = CourtsModel::pluck("id")->toArray();
 
-        foreach($courts as $court)
+        for($i = 7; $i <= 23; $i++)
         {
-            for($i = 7; $i <= 23; $i++)
+            foreach($courts as $court)
             {
                 SlotsModel::create([
                     "court_id" => $court,
