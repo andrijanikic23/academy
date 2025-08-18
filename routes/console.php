@@ -8,4 +8,7 @@ Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
 
-Schedule::command("slots:update")->daily();
+Schedule::command("slots:update")
+    ->daily()
+    ->timezone("Europe/Serbia")
+    ->at("00:00");
