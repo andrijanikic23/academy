@@ -17,4 +17,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
+Route::get("/sessions", [\App\Http\Controllers\SlotsController::class, "getSessions"]);
+Route::post("/sessions/booked", [\App\Http\Controllers\SlotsController::class, "booking"])->name("session.booked");
+
 require __DIR__.'/auth.php';
