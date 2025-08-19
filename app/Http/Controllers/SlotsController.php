@@ -33,7 +33,10 @@ class SlotsController extends Controller
             if($session["date"] !== $previousDate)
             {
                 $previousDate = $session["date"];
-                $anotherDay = Carbon::parse($session["date"])->format("l");
+                Carbon::setLocale("sr");
+                $anotherDay = Carbon::parse($session["date"])->translatedFormat("l");
+                //!!!!!!
+                $anotherDay = mb_convert_case($anotherDay, MB_CASE_TITLE, "UTF-8");
                 $dates[$previousDate] = $anotherDay;
             }
         }
@@ -49,4 +52,13 @@ class SlotsController extends Controller
         return redirect()->back();
 
     }
+
+    public function cancelling(Request $request)
+    {
+        $this->slotsRepo->cancelled($request);
+
+        return redirect()->back();
+
+    }
+
 }

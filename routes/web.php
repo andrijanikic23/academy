@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SlotsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -17,8 +18,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::controller(SlotsController::class)->group(function(){
+    Route::get("/sessions", "getSessions");
+    Route::post("/sessions/booked", "booking")->name("session.booked");
+    Route::post("/sessions/cancelled", "cancelling")->name("session.cancelled");
+});
 
-Route::get("/sessions", [\App\Http\Controllers\SlotsController::class, "getSessions"]);
-Route::post("/sessions/booked", [\App\Http\Controllers\SlotsController::class, "booking"])->name("session.booked");
+
 
 require __DIR__.'/auth.php';

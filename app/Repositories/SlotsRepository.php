@@ -24,4 +24,15 @@ class SlotsRepository
             "status" => "RE",
         ]);
     }
+
+    public function cancelled($request)
+    {
+        $userId = Auth::id();
+        $slotId = $request->sessionId;
+
+        $this->slotsModel::whereId($slotId)->update([
+            "user_id" => null,
+            "status" => null,
+        ]);
+    }
 }
