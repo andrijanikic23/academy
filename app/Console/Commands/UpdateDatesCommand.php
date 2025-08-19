@@ -28,12 +28,14 @@ class UpdateDatesCommand extends Command
      */
     public function handle()
     {
+
         $earliestDate = SlotsModel::min("date");
         SlotsModel::where("date", $earliestDate)->delete();
 
         $latestDate = SlotsModel::max("date");
         $newLatestDate = Carbon::parse($latestDate)->addDays(1);
         $courts = CourtsModel::pluck("id")->toArray();
+
 
         for($i = 7; $i <= 23; $i++)
         {
