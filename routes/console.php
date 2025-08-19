@@ -10,5 +10,5 @@ Artisan::command('inspire', function () {
 
 Schedule::command("slots:update")
     ->daily()
-    ->timezone("Europe/Serbia")
+    ->timezone("Europe/Belgrade")
     ->at("00:00");
