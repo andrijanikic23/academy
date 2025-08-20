@@ -9,5 +9,5 @@ class SlotsModel extends Model
     protected $table = "slots";
 
 
-    protected $fillable = ["court_id", "user_id", "date", "time", "status"];
+    protected $fillable = ["court_id", "user_id", "date", "time", "temperature", "chance_of_rain", "wind_speed", "status", "price"];
 }
