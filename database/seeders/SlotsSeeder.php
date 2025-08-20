@@ -31,11 +31,25 @@ class SlotsSeeder extends Seeder
             {
                 foreach($courts as $court)
                 {
-                    SlotsModel::create([
-                        "court_id" => $court,
-                        "date" => Carbon::now()->addDays($j),
-                        "time" => $i,
-                    ]);
+                    if($i >= 7 && $i <=17)
+                    {
+                        SlotsModel::create([
+                            "court_id" => $court,
+                            "date" => Carbon::now()->addDays($j),
+                            "time" => $i,
+                            "price" => 1400,
+                        ]);
+                    }
+                    else
+                    {
+                        SlotsModel::create([
+                            "court_id" => $court,
+                            "date" => Carbon::now()->addDays($j),
+                            "time" => $i,
+                            "price" => 1800,
+                        ]);
+                    }
+
                 }
             }
         }
