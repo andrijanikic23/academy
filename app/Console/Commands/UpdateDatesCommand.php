@@ -41,11 +41,25 @@ class UpdateDatesCommand extends Command
         {
             foreach($courts as $court)
             {
-                SlotsModel::create([
-                    "court_id" => $court,
-                    "date" => $newLatestDate,
-                    "time" => $i,
-                ]);
+                if($i >= 7 && $i<=17)
+                {
+                    SlotsModel::create([
+                        "court_id" => $court,
+                        "date" => $newLatestDate,
+                        "time" => $i,
+                        "price" => 1400,
+                    ]);
+                }
+                else
+                {
+                    SlotsModel::create([
+                        "court_id" => $court,
+                        "date" => $newLatestDate,
+                        "time" => $i,
+                        "price" => 1800,
+                    ]);
+                }
+
             }
         }
 
