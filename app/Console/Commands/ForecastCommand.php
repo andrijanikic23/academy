@@ -2,6 +2,8 @@
 
 namespace App\Console\Commands;
 
+use App\Models\SlotsModel;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 
@@ -27,9 +29,9 @@ class ForecastCommand extends Command
     public function handle()
     {
         $response = Http::get("http://api.weatherapi.com/v1/forecast.json", [
-           "key" => env("API_KEY"),
+            "key" => env("API_KEY"),
             "q" => "Belgrade",
-            "days" => 14,
+            "days" => 3,
             "lang" => "sr",
         ]);
 
@@ -40,16 +42,23 @@ class ForecastCommand extends Command
         {
             foreach($data["forecast"]["forecastday"][$i]["hour"] as $info)
             {
-                $releventData[] = [
-                    "time" => $info["time"],
-                    "temperature" => $info["temp_c"],
-                    "windSpeed" => $info["wind_kph"],
-                    "chanceOfRain" => $info["chance_of_rain"],
-                ];
+                $hour = Carbon::parse($info["time"])->format("H");
+
+                $date = Carbon::parse($info["time"])->format("Y-m-d");
+
+                if($hour >= 7 && $hour <= 23)
+                {
+                    SlotsModel::where("date", $date)->where("time", $hour)->update([
+
+                        "temperature" => $info["temp_c"],
+                        "wind_speed" => $info["wind_kph"],
+                        "chance_of_rain" => $info["chance_of_rain"],
+                    ]);
+
+
+                }
             }
         }
 
-
-        dd($releventData);
     }
 }
