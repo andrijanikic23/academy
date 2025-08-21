@@ -36,7 +36,6 @@ class ForecastCommand extends Command
         ]);
 
         $data = $response->json();
-        $releventData = [];
 
         for($i = 0; $i <= 2; $i++)
         {
