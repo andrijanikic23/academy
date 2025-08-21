@@ -6,6 +6,7 @@ use App\Models\SlotsModel;
 use App\Repositories\SlotsRepository;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 
 class SlotsController extends Controller
 {
@@ -40,6 +41,9 @@ class SlotsController extends Controller
                 $dates[$previousDate] = $anotherDay;
             }
         }
+
+        $forecastData = Artisan::call("slots:forecast");
+        dd($forecastData);
 
 
         return view("reservations", ["sessions" => $allSessions, "dates" => $dates, "availableSlots" => $availableSlots]);
