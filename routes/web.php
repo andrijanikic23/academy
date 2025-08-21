@@ -19,7 +19,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::controller(SlotsController::class)->group(function(){
-    Route::get("/sessions", "getSessions");
+    Route::get("/sessions", "getSessions")->name("session.schedule");
     Route::post("/sessions/booked", "booking")->name("session.booked");
     Route::post("/sessions/cancelled", "cancelling")->name("session.cancelled");
 });

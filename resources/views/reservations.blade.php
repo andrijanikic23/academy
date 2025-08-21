@@ -26,7 +26,8 @@
 
         td {
             height:30px;
-            width:40px;
+            max-height:30px;
+            width:50px;
         }
 
         td form {
@@ -41,10 +42,12 @@
         }
 
         .btnRe {
+            padding: 0;
+            margin: 0;
             width: 100%;
             height:100%;
             background:none;
-            border: 1px dashed lawngreen;
+            border: 3px solid lawngreen;
             font-size:15px;
         }
 
@@ -54,6 +57,12 @@
             background:none;
             border: none;
             font-size:15px;
+        }
+
+        .yourSession {
+            background-color:yellow;
+            width:100%;
+            height:100%;
         }
 
 
@@ -72,7 +81,7 @@
                 </div>
 
                 <div>
-                    <table class="tableBorders">
+                    <table>
                         <thead>
                         <tr>
                             <th>  </th>
@@ -89,59 +98,88 @@
                                     @if($session["date"] == $date && $session["time"] == $slot)
                                         @if($session["status"] == null)
 
-                                            <td><button class="btnCa d-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#booking-{{ $session['id'] }}">{{ $session["status"] }}</button></td>
+                                            @php
+                                                $userId = \Illuminate\Support\Facades\Auth::id();
+                                            @endphp
 
-                                            <div class="modal" id="booking-{{ $session['id'] }}" tabindex="-1" role="dialog">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title">Potvrda</h5>
-                                                            <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <p>Potvrda rezervacije termina u "{{ $day }}" u {{$session["time"]}}h na terenu {{$session["court_id"]}}</p>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <form method="POST" action="{{ route('session.booked') }}">
-                                                                {{ csrf_field() }}
-                                                                <input type="hidden" name="sessionId" value="{{ $session['id'] }}">
-                                                                <button class="btn btn-primary">Rezerviši ({{$session["price"]}}din)</button>
-                                                            </form>
+                                            @if(isset($userId))
 
-                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+                                                <td><button class="btnCa d-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#booking-{{ $session['id'] }}">{{ $session["status"] }}</button></td>
+
+                                                <div class="modal" id="booking-{{ $session['id'] }}" tabindex="-1" role="dialog">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title">Rezervacija termina</h5>
+                                                                <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <p>Potvrda rezervacije termina u "{{ $day }}" u {{$session["time"]}}h na terenu {{$session["court_id"]}}</p>
+                                                            </div>
+                                                            <div class="modal-body d-flex flex-row justify-content-around">
+                                                                @if($session["temperature"] !== null)
+                                                                    <div>
+                                                                        <p><i class="fa-solid fa-temperature-full"></i> {{ $session["temperature"] }}&deg;C</p>
+                                                                    </div>
+
+                                                                    <div>
+                                                                        <p><i class="fa-solid fa-umbrella"></i> {{ $session["chance_of_rain"] }}%</p>
+                                                                    </div>
+
+                                                                    <div>
+                                                                        <p><i class="fa-solid fa-wind"></i> {{ $session["wind_speed"] }}km/h</p>
+                                                                    </div>
+                                                                @endif
+                                                            </div>
+
+                                                            <div class="modal-footer">
+                                                                <form method="POST" action="{{ route('session.booked') }}">
+                                                                    {{ csrf_field() }}
+                                                                    <input type="hidden" name="sessionId" value="{{ $session['id'] }}">
+                                                                    <button class="btn btn-primary">Rezerviši ({{$session["price"]}}din)</button>
+                                                                </form>
+
+                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+
+                                            @else
+                                                <td>{{ $session["status"] }}</td>
+                                            @endif
 
 
                                         @else
 
-                                            <td><button class="btnRe d-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#confirmation-{{ $session['id'] }}">{{ $session["status"] }}</button></td>
+                                            @if($session["user_id"] == $userId)
+                                                <td><button class="btnRe yourSession d-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#confirmation-{{ $session['id'] }}">{{ $session["status"] }}</button></td>
 
-                                            <div class="modal" id="confirmation-{{ $session['id'] }}" tabindex="-1" role="dialog">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title">Potvrda</h5>
-                                                            <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <p>Potvrda otkaza termina</p>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <form method="POST" action="{{ route('session.cancelled') }}">
-                                                                {{ csrf_field() }}
-                                                                <input type="hidden" name="sessionId" value="{{ $session['id'] }}">
-                                                                <button class="btn btn-primary">Otkaži</button>
-                                                            </form>
+                                                <div class="modal" id="confirmation-{{ $session['id'] }}" tabindex="-1" role="dialog">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title">Otkazivanje</h5>
+                                                                <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <p>Otkazivanje termina</p>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <form method="POST" action="{{ route('session.cancelled') }}">
+                                                                    {{ csrf_field() }}
+                                                                    <input type="hidden" name="sessionId" value="{{ $session['id'] }}">
+                                                                    <button class="btn btn-primary">Otkaži</button>
+                                                                </form>
 
-                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-
+                                            @else
+                                                <td>{{ $session["status"] }}</td>
+                                            @endif
                                         @endif
                                     @endif
                                 @endforeach

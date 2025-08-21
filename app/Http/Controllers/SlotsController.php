@@ -42,9 +42,6 @@ class SlotsController extends Controller
             }
         }
 
-        $forecastData = Artisan::call("slots:forecast");
-        dd($forecastData);
-
 
         return view("reservations", ["sessions" => $allSessions, "dates" => $dates, "availableSlots" => $availableSlots]);
     }
