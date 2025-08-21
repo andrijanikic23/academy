@@ -12,3 +12,8 @@ Schedule::command("slots:update")
     ->daily()
     ->timezone("Europe/Belgrade")
     ->at("00:00");
+
+Schedule::command("slots:update")
+    ->daily()
+    ->timezone("Europe/Belgrade")
+    ->at("00:01");
