@@ -18,6 +18,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Treneri</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('school') }}">Škola tenisa</a>
+            </li>
         </ul>
     </div>
 </nav>

@@ -22,6 +22,8 @@ Route::controller(SlotsController::class)->group(function(){
     Route::post("/sessions/cancelled", "cancelling")->name("session.cancelled");
 });
 
+Route::view("/tennis-school", "tennisSchool")->name("school");
+
 
 
 require __DIR__.'/auth.php';
