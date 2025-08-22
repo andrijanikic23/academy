@@ -16,6 +16,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get("/sessions/overview", [ProfileController::class, "logout"])->name("profile.logout");
+
 Route::controller(SlotsController::class)->group(function(){
     Route::get("/sessions", "getSessions")->name("session.schedule");
     Route::post("/sessions/booked", "booking")->name("session.booked");
