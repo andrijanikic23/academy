@@ -29,18 +29,31 @@ class SlotsController extends Controller
             array_push($availableSlots, $i);
         }
 
+//        $availableSlots = range(7,23);
+//        array_push($availableSlots, )
+        Carbon::setLocale("sr");
+
         foreach($allSessions as $session)
         {
             if($session["date"] !== $previousDate)
             {
                 $previousDate = $session["date"];
-                Carbon::setLocale("sr");
+
                 $anotherDay = Carbon::parse($session["date"])->translatedFormat("l");
                 //!!!!!!
                 $anotherDay = mb_convert_case($anotherDay, MB_CASE_TITLE, "UTF-8");
                 $dates[$previousDate] = $anotherDay;
             }
         }
+
+//        $dates = $allSessions
+//            ->pluck("date")
+//            ->unique()
+//            ->mapWithKeys(function($date) {
+//                $day = Carbon::parse($date)->translatedFormat("l");
+//                $day = mb_convert_case($day, MB_CASE_TITLE, "UTF-8");
+//                return [$date => $day];
+//            });
 
 
         return view("reservations", ["sessions" => $allSessions, "dates" => $dates, "availableSlots" => $availableSlots]);
