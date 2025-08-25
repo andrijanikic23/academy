@@ -8,12 +8,11 @@ Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
 
-Schedule::command("slots:forecast")
-    ->daily()
-    ->timezone("Europe/Belgrade")
-    ->at("00:00");
 
 Schedule::command("slots:update")
     ->daily()
-    ->timezone("Europe/Belgrade")
-    ->at("00:01");
+    ->timezone("Europe/Belgrade");
+
+Schedule::command("slots:forecast")
+    ->daily()
+    ->timezone("Europe/Belgrade");
