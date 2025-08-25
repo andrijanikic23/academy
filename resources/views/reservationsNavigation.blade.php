@@ -49,7 +49,7 @@
 
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('profile.edit') }}">Prijava<span class="sr-only">(current)</span></a>
+                    <a class="nav-link active" href="{{ route('profile.logged') }}">Prijava<span class="sr-only">(current)</span></a>
                 </li>
             </ul>
             @endif

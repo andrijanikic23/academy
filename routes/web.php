@@ -17,6 +17,9 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get("/sessions/overview", [ProfileController::class, "logout"])->name("profile.logout");
+Route::get("/profile/logged-in", function() {
+   return redirect()->route("session.schedule");
+})->middleware(["auth"])->name("profile.logged");
 
 Route::controller(SlotsController::class)->group(function(){
     Route::get("/sessions", "getSessions")->name("session.schedule");
