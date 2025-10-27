@@ -15,5 +15,6 @@
 
 @include("reservationsNavigation")
 @yield("content")
+@include("footer")
 </body>
 </html>
