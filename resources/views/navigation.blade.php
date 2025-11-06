@@ -21,9 +21,9 @@
                     Treneri
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Naša ekipa</a></li>
+                    <li><a class="dropdown-item" href="{{ route('team.overview') }}">Naša ekipa</a></li>
                     <li><a class="dropdown-item" href="#">Posao</a></li>
-                    <li><a class="dropdown-item" href="#">Dodaj novog člana</a></li>
+                    <li><a class="dropdown-item" href="{{ route('team.member') }}">Dodaj novog člana</a></li>
                 </ul>
             </li>
             <li class="nav-item  active">
