@@ -29,6 +29,8 @@ Route::controller(SlotsController::class)->group(function(){
 
 Route::view("/tennis-school", "tennisSchool")->name("school");
 
+Route::view("/team", "coaches")->name("team");
+
 
 
 require __DIR__.'/auth.php';

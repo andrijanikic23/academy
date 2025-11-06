@@ -12,11 +12,19 @@
             <li class="nav-item  active">
                 <a class="nav-link" href="#">O nama</a>
             </li>
-            <li class="nav-item  active">
+            <li class="nav-item active">
                 <a class="nav-link" href="{{ route('session.schedule') }}">Rezervacija termina</a>
             </li>
-            <li class="nav-item  active">
-                <a class="nav-link" href="#">Treneri</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                   role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Treneri
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Naša ekipa</a></li>
+                    <li><a class="dropdown-item" href="#">Posao</a></li>
+                    <li><a class="dropdown-item" href="#">Dodaj novog člana</a></li>
+                </ul>
             </li>
             <li class="nav-item  active">
                 <a class="nav-link" href="{{ route('school') }}">Škola tenisa</a>
