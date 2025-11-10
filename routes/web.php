@@ -30,10 +30,11 @@ Route::controller(SlotsController::class)->group(function(){
 
 Route::view("/tennis-school", "tennisSchool")->name("school");
 
-Route::view("/team", "coaches")->name("team.overview");
+
 Route::view("/team/new-member", "newMember")->name("team.member");
 Route::controller(CoachesController::class)->group(function(){
     Route::post("/team/new-member-added", "newMember")->name("team.added.member");
+    Route::get("/team/overview", "coaches")->name("team.overview");
 });
 
 
