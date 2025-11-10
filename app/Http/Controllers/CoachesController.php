@@ -25,7 +25,7 @@ class CoachesController extends Controller
 
     public function coaches()
     {
-        $coaches = EmployeesModel::select("name", "surname", "image_url")->take(3)->get();
+        $coaches = EmployeesModel::select("name", "surname", "image_url", "role")->take(4)->get();
 
         return view("coaches", compact("coaches"));
     }
