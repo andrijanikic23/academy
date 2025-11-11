@@ -3,6 +3,7 @@
 use App\Http\Controllers\CoachesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SlotsController;
+use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::view("/", "welcome")->name("welcome");
@@ -31,7 +32,7 @@ Route::controller(SlotsController::class)->group(function(){
 Route::view("/tennis-school", "tennisSchool")->name("school");
 
 
-Route::view("/team/new-member", "newMember")->name("team.member");
+Route::view("/team/new-member", "newMember")->middleware(AdminMiddleware::class, 'auth')->name("team.member");
 Route::controller(CoachesController::class)->group(function(){
     Route::post("/team/new-member-added", "newMember")->name("team.added.member");
     Route::get("/team/overview", "coaches")->name("team.overview");
