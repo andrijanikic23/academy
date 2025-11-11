@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="{{ route('welcome') }}">
-            <img src="images/logo.png" width="60" height="60" alt="">
+            <img src="{{ asset('images/logo.png') }}" width="60" height="60" alt="Logo kluba">
         </a>
     </nav>
     <div class="collapse navbar-collapse" id="navbarNav">

@@ -16,9 +16,9 @@
 
     <article class="container d-flex flex-column gap-4">
         <div class="container d-flex flex-column">
-            <h1>Team</h1>
-            <p>The heart of our academy is our team. Not only do we have the very best coaches in the World, but we also cover each and every aspect of the player's life. From fitness experts, managing staff, and physiotherapists we don't leave anything to chance.</p>
-            <p>Meet our team:</p>
+            <h1>Tim</h1>
+            <p>Srce naše akademije je naš tim. Ne samo da imamo najbolje trenere na svetu, već pokrivamo svaki aspekt života igrača. Od fitnes stručnjaka, menadžerskog osoblja do fizioterapeuta – ništa ne prepuštamo slučaju.</p>
+            <p>Upoznaj naš tim:</p>
         </div>
         <div class="container">
             <div class="row">
