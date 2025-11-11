@@ -23,7 +23,9 @@
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="{{ route('team.overview') }}">Naša ekipa</a></li>
                     <li><a class="dropdown-item" href="#">Posao</a></li>
-                    <li><a class="dropdown-item" href="{{ route('team.member') }}">Dodaj novog člana</a></li>
+                    @if(\Illuminate\Support\Facades\Auth::user()->role == "admin")
+                        <li><a class="dropdown-item" href="{{ route('team.member') }}">Dodaj novog člana</a></li>
+                    @endif
                 </ul>
             </li>
             <li class="nav-item  active">

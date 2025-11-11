@@ -1,6 +1,6 @@
 @extends("layout")
 
-
+@section("title", "Škola tenisa")
 
 
 @section("content")

@@ -1,5 +1,7 @@
 @extends("layout")
 
+@section("title", "Tim")
+
 @section("content")
 
     <style>

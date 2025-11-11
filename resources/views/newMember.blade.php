@@ -1,8 +1,14 @@
+@php use Illuminate\Support\Facades\Session; @endphp
 @extends("layout")
+
+@section("title", "Novi član")
 
 @section("content")
 
     <article class="container d-flex flex-column">
+        @if(Session::has("success"))
+            <p class="bg-success text-success">{{ Session::get("success") }}</p>
+        @endif
         <h3>Ispod se nalazi forma gde možeš upisati novog člana kluba</h3>
         <form method="POST" action="{{ route('team.added.member') }}" class="d-flex flex-column gap-3">
             {{ csrf_field() }}

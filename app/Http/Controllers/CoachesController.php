@@ -20,7 +20,7 @@ class CoachesController extends Controller
     {
         $this->membersRepo->addMember($request);
 
-        return redirect()->back();
+        return redirect()->back()->with("success", "Novi član je uspšno dodat!");
     }
 
     public function coaches()
