@@ -1,4 +1,4 @@
-<footer class="bg-dark text-white text-center py-3 mt-auto">
+<footer class="bg-secondary text-white text-center py-3 mt-4">
     <div class="container">
         <div class="d-flex column gap-5">
             <div class="col-3">
@@ -36,9 +36,9 @@
             <div>
                 <h3 class="mb-4">KONTAKT</h3>
 
-                <p><a href="" style="text-decoration:none; color:white;"><i class="fa-solid fa-phone" style="color:green;"></i> +381612111088</a></p>
+                <p><a href="teč:+381612111088" style="text-decoration:none; color:white;"><i class="fa-solid fa-phone" style="color:green;"></i> +381612111088</a></p>
                 <p><a href="mailto:andrijanikic001@gmail.com"  style="text-decoration:none; color:white;"><i class="fa-solid fa-inbox" style="color:white;"></i>  andrijanikic001@gmail.com</a></p>
-                <p><a href="mailto:andrijanikic001@gmail.com"  style="text-decoration:none; color:white;"><i class="fa-solid fa-location-dot" style="color:red;"></i>  Bulevar Zorana Đinđića 163, 11070 Beograd</a></p>
+                <p><a href="https://maps.app.goo.gl/AZahyQZf7PUDdaNu6"  style="text-decoration:none; color:white;"><i class="fa-solid fa-location-dot" style="color:red;"></i>  Bulevar Zorana Đinđića 163, 11070 Beograd</a></p>
                 <div class="d-flex justify-content-around gap-2">
                     <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram fa-2xl" style="text-decoration:none; color:purple;"></i></a>
                     <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook fa-2xl" style="text-decoration:none; color:blue;"></i></a>
