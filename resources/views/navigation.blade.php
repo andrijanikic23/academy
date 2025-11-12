@@ -24,13 +24,16 @@
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="{{ route('team.overview') }}">Naša ekipa</a></li>
                     <li><a class="dropdown-item" href="#">Posao</a></li>
-                    @if(empty(Auth::user()->role) == false && Auth::user()->role == "admin"))
+                    @if(empty(Auth::user()->role) == false && Auth::user()->role == "admin")
                         <li><a class="dropdown-item" href="{{ route('team.member') }}">Dodaj novog člana</a></li>
                     @endif
                 </ul>
             </li>
             <li class="nav-item  active">
                 <a class="nav-link" href="{{ route('school') }}">Škola tenisa</a>
+            </li>
+            <li>
+                <a class="nav-link" href="{{ route('contact') }}">Kontakt</a>
             </li>
         </ul>
     </div>

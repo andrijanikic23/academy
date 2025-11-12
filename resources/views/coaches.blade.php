@@ -27,7 +27,7 @@
                 @foreach($coaches as $coach)
                     <div class="col-6 mb-4 text-center">
                         <img class="round_image" src="{{ $coach->image_url }}" alt="{{ $coach->name }}">
-                        <h5>{{ $coach->name }} {{ $coach->surname }}</h5>
+                        <h4 class="mt-3">{{ $coach->name }} {{ $coach->surname }}</h4>
                         <p class="text-muted">{{ $coach->role }}</p>
                     </div>
                 @endforeach
