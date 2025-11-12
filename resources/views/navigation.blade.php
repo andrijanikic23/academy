@@ -1,3 +1,4 @@
+@php use Illuminate\Support\Facades\Auth; @endphp
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="{{ route('welcome') }}">
@@ -23,7 +24,7 @@
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="{{ route('team.overview') }}">Naša ekipa</a></li>
                     <li><a class="dropdown-item" href="#">Posao</a></li>
-                    @if(\Illuminate\Support\Facades\Auth::user()->role == "admin")
+                    @if(empty(Auth::user()->role) == false && Auth::user()->role == "admin"))
                         <li><a class="dropdown-item" href="{{ route('team.member') }}">Dodaj novog člana</a></li>
                     @endif
                 </ul>
