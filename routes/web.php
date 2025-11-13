@@ -39,6 +39,11 @@ Route::controller(CoachesController::class)->group(function(){
 });
 
 
+Route::view("/contact", "contact")->name("contact");
+Route::post("/contact/message-sent", [\App\Http\Controllers\QuestionsController::class, "message"])->name("contact.message");
+
+
+
 
 
 

@@ -46,7 +46,8 @@
 
             </div>
 
-            <form method="POST" action="" class="mt-5">
+            <form method="POST" action="{{ route('contact.message') }}" class="mt-5">
+                {{ csrf_field() }}
                 <div class="row">
                     <div class="col">
                         <input name="name" type="text" class="form-control" placeholder="Vaše ime i prezime">
