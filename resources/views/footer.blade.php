@@ -5,7 +5,7 @@
                 <h3>O NAMA</h3>
 
                 <p style="text-align:justify">Teniski klub “Baseline Warriors” osnovan je 1996. godine u Beogradu. Kroz 20 godina postojanja, klub je do sada sa velikim uspehom iznedrio mnoštvo domaćih igrača i igračica, od kojih je većina postigla zapažene juniorske i seniorske uspehe u svetu tenisa poput Miomira Kecmanovića, Filipa Krajinovića, Dušana Lajovića i drugih.</p>
-                <a type="button" class="btn btn-primary btn-lg">Pročitaj više</a>
+                <a type="button" href="{{ route('about') }}" class="btn btn-primary btn-lg">Pročitaj više</a>
             </div>
 
 
