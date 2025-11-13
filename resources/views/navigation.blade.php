@@ -11,7 +11,7 @@
                 <a class="nav-link active" href="{{ route('welcome') }}">Početna <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item  active">
-                <a class="nav-link" href="#">O nama</a>
+                <a class="nav-link" href="{{ route('about') }}">O nama</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('session.schedule') }}">Rezervacija termina</a>
