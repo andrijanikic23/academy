@@ -6,6 +6,13 @@
 
     <style>
 
+
+        * {
+            font-family: "Open Sans", sans-serif;
+            font-size: 1rem;
+        }
+
+
         .round_image {
             border-radius: 50%;
             width: 200px;
@@ -25,7 +32,7 @@
         <div class="container">
             <div class="row">
                 @foreach($coaches as $coach)
-                    <div class="col-6 mb-4 text-center">
+                    <div class="col-12 col-lg-6 col-md-6 mb-4 text-center">
                         <img class="round_image" src="{{ $coach->image_url }}" alt="{{ $coach->name }}">
                         <h4 class="mt-3">{{ $coach->name }} {{ $coach->surname }}</h4>
                         <p class="text-muted">{{ $coach->role }}</p>

@@ -5,6 +5,11 @@
 @section("head")
     <style>
 
+        * {
+            font-family: "Open Sans", sans-serif;
+            font-size: 1rem;
+        }
+
         .contactImage {
             background-attachment:fixed;
             background-repeat: no-repeat;
@@ -15,16 +20,15 @@
         }
 
 
-
     </style>
 
 @endsection
 
 @section("content")
 
-    <div>
-        <img src="{{ asset('images/contact_image.png') }}" class="contactImage">
-    </div>
+    <header>
+        <img src="{{ asset('images/contact_image.png') }}" class="contactImage" alt="Image of club contact">
+    </header>
 
     <div class="container d-flex flex-row mt-5">
         <div>
@@ -70,7 +74,7 @@
 
 
         <div class="container col-4">
-            <img src="{{ asset('images/logo3.jpg') }}" style="height:500px; width:500px;">
+            <img src="{{ asset('images/logo3.jpg') }}" style="height:500px; width:500px;" alt="Image of tennis racquet">
         </div>
     </div>
 

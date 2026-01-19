@@ -3,6 +3,18 @@
 
 @section("title", "Novi član")
 
+@section("head")
+
+    <style>
+        * {
+            font-family: "Open Sans", sans-serif;
+            font-size: 1rem;
+        }
+    </style>
+
+@endsection
+
+
 @section("content")
 
     <article class="container d-flex flex-column">
@@ -38,9 +50,11 @@
             </div>
             <div class="row">
                 <div class="col">
+                    <label>Datum rođenja</label>
                     <input name="date_of_birth" type="date" class="form-control" placeholder="Datum rođenja">
                 </div>
                 <div class="col">
+                    <br>
                     <select class="form-select" name="status">
                         <option disabled selected>Radni odnos</option>
                         <option value="active">Aktivan</option>
