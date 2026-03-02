@@ -14,6 +14,7 @@ class SlotsRepository
         $this->slotsModel = new SlotsModel();
     }
 
+    //Booking a slot
     public function booked($request)
     {
         $userId = Auth::id();
@@ -25,9 +26,9 @@ class SlotsRepository
         ]);
     }
 
+    //Cancelling a slot
     public function cancelled($request)
     {
-        $userId = Auth::id();
         $slotId = $request->sessionId;
 
         $this->slotsModel::whereId($slotId)->update([
