@@ -18,58 +18,46 @@
         }
 
         table, th, td {
-            table-layout: fixed;       /* Fiksira kolone prema širini */
-            width: 100%;
+            table-layout:fixed;
             text-align: center;
             vertical-align: middle;
             border: 1px solid black;
             border-collapse: collapse;
+            position:sticky;
         }
 
-        th, td {
-            width: 50px;               /* fiksna širina kolone */
-            height: 40px;              /* fiksna visina reda */
-            max-height: 40px;          /* sprečava rast */
-            overflow: hidden;          /* tekst koji ne staje se sakriva */
-            white-space: nowrap;       /* sprečava prelamanje teksta */
-            text-overflow: ellipsis;   /* prikazuje "..." ako tekst ne staje */
-        }
-
-        td form {
-            margin: 0;
-            height: 100%;
+        td {
+            height:40px;
+            width:40px;
+            overflow: hidden;
         }
 
         td form button {
-            width: 100%;
-            height: 100%;
             box-sizing: border-box;
             opacity: 0;
         }
 
         .btnRe {
-            padding: 0;
-            margin: 0;
+            display:inline-block;
             width: 100%;
             height: 100%;
-            background: none;
+            padding: 0;
+            margin: 0;
+            background: yellow;
             border: 3px solid lawngreen;
             font-size: 15px;
         }
 
         .btnCa {
+            display:inline-block;
             width: 100%;
-            height: 100%;
-            background: none;
-            border: none;
+            height:25px;
+            padding: 0;
+            margin: 0;
             font-size: 15px;
         }
 
-        .yourSession {
-            background-color: yellow;
-            width: 100%;
-            height: 100%;
-        }
+
     </style>
 
 @endsection
@@ -114,11 +102,11 @@
 
                                                 @if(isset($userId))
                                                     <td>
-                                                        <button
-                                                            class="btnCa d-flex align-items-center justify-content-center"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target="#booking-{{ $session['id'] }}">
-                                                        </button>
+                                                            <button
+                                                                class="btnCa d-flex align-items-center justify-content-center"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#booking-{{ $session['id'] }}">
+                                                            </button>
                                                     </td>
 
                                                     {{-- MODAL REZERVACIJA --}}
@@ -172,9 +160,10 @@
                                             @else
 
                                                 @if($session["user_id"] == $userId)
+
                                                     <td>
                                                         <button
-                                                            class="btnRe yourSession d-flex align-items-center justify-content-center"
+                                                            class="btnRe d-flex align-items-center justify-content-center"
                                                             data-bs-toggle="modal"
                                                             data-bs-target="#confirmation-{{ $session['id'] }}">
                                                         {{ $session->status }}</button>
