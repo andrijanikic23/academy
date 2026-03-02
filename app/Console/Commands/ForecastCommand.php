@@ -54,7 +54,6 @@ class ForecastCommand extends Command
                         "chance_of_rain" => $info["chance_of_rain"],
                     ]);
 
-
                 }
             }
         }

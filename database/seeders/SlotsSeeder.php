@@ -5,9 +5,7 @@ namespace Database\Seeders;
 use App\Models\CourtsModel;
 use App\Models\SlotsModel;
 use Carbon\Carbon;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
 
 class SlotsSeeder extends Seeder
 {
@@ -19,8 +17,6 @@ class SlotsSeeder extends Seeder
         $courts = CourtsModel::all()->pluck("id")->toArray();
 
         $this->fillSessions($courts);
-
-
     }
 
     public function fillSessions($courts)

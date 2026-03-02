@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CoachesController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QuestionsController;
 use App\Http\Controllers\SlotsController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -40,7 +41,7 @@ Route::controller(CoachesController::class)->group(function(){
 
 
 Route::view("/contact", "contact")->name("contact");
-Route::post("/contact/message-sent", [\App\Http\Controllers\QuestionsController::class, "message"])->name("contact.message");
+Route::post("/contact/message-sent", [QuestionsController::class, "message"])->name("contact.message");
 
 
 Route::view("/about", "about")->name("about");
