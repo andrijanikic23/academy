@@ -64,6 +64,10 @@
                     <a class="nav-link" href="{{ route('contact') }}">Kontakt</a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('profile.edit') }}">Nalog</a>
+                </li>
+
             </ul>
         </div>
 
